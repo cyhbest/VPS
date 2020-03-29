@@ -144,7 +144,7 @@ function install_v2ray(){
     sed -i "s/mypath/$newpath/;" config.json
     cd /var/www/
     wget https://github.com/cyhbest/VPS/raw/master/web.zip
-    unzip web.zip
+    unzip -q web.zip
     systemctl restart v2ray.service
     systemctl restart caddy.service
     
