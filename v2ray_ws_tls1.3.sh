@@ -143,7 +143,7 @@ function install_v2ray(){
     sed -i "s/bbbb/$v2uuid2/;" config.json
     sed -i "s/mypath/$newpath/;" config.json
     cd /var/www/
-    wget https://github.com/atrandys/v2ray-ws-tls/raw/master/web.zip
+    wget https://github.com/cyhbest/VPS/raw/master/web.zip
     unzip web.zip
     systemctl restart v2ray.service
     systemctl restart caddy.service
@@ -153,7 +153,8 @@ cat > /etc/v2ray/myconfig.json<<-EOF
 ===========配置参数=============
 地址：${your_domain}
 端口：443
-uuid：${v2uuid}
+uuid1：${v2uuid}
+uuid2：${v2uuid2}
 额外id：64
 加密方式：aes-128-gcm
 传输协议：ws
@@ -168,7 +169,8 @@ green "         安装已经完成"
 green "===========配置参数============"
 green "地址：${your_domain}"
 green "端口：443"
-green "uuid：${v2uuid}"
+green "uuid1：${v2uuid}"
+green "uuid2：${v2uuid2}"
 green "额外id：64"
 green "加密方式：aes-128-gcm"
 green "传输协议：ws"
@@ -204,6 +206,7 @@ function start_menu(){
     green " Author     : Atrandys                      "
     green " WebSite    : www.atrandys.com              "
     green " YouTube    : Randy's 堡垒                   "
+    green " Modified by: Edward                        "
     green " ==============================================="
     echo
     green " 1. install v2ray+ws+tls1.3"
@@ -211,7 +214,7 @@ function start_menu(){
     red " 3. remove v2ray"
     yellow " 0. exit"
     echo
-    read -p "Pls enter a number:" num
+    read -p "Please enter a number:" num
     case "$num" in
     1)
     install_caddy
